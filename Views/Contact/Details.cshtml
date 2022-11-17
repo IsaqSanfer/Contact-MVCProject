@@ -1,0 +1,37 @@
+﻿@model ContactMVCProject.Models.ContactModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-3">Detailhes do Contato</h1>
+<hr />
+<div class="container-fluid m-auto">
+    @*<h4>ContactModel</h4>*@
+    @*<hr />*@
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> 
+    <a class="btn btn-secondary mx-3" asp-action="Index">Voltar</a>
+</div>

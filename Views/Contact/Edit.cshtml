@@ -1,0 +1,40 @@
+﻿@model ContactMVCProject.Models.ContactModel
+
+@{
+    ViewData["Title"] = "Editar Contato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-3">Editar Contato</h1>
+<hr />
+<div class="container-fluid m-auto">
+    <div class="col-md-6 mt-4 m-auto">
+        <form class="form-floating shadow-lg py-5 px-4" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check mb-5">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+            <div class="form-group form-inline">
+                <input type="submit" value="Salvar" class="btn btn-primary px-5 mx-3" />
+                <a class="btn btn-secondary mx-3" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

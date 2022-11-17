@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ContactMVCProject.Models.ContactModel>
+
+@{
+    ViewData["Title"] = "Contatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-3">Contatos</h1>
+<hr/>
+<p>
+    <a class="btn btn-outline-primary btn-lg shadow-sm" asp-action="Create"> + Criar Contato</a>
+</p>
+<table class="table table-hover shadow-lg">
+    <caption>Lista de contatos</caption>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.Id)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a class="btn btn-outline-warning" data-toggle="button" aria-pressed="false" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-outline-info" data-toggle="button" aria-pressed="false" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a class="btn btn-outline-danger" data-toggle="button" aria-pressed="false" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
